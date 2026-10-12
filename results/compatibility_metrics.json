@@ -1,0 +1,29 @@
+{
+  "dataset": {
+    "train_outfits": 17316,
+    "valid_outfits": 1497,
+    "test_outfits": 3076,
+    "total_items": 142480,
+    "unique_category_ids": 363
+  },
+  "compatibility_prediction": {
+    "accuracy": 0.7694,
+    "precision": 0.6994,
+    "recall": 0.8231,
+    "f1": 0.7563,
+    "n_samples": 7076,
+    "n_positive": 3076,
+    "n_negative": 4000
+  },
+  "fill_in_the_blank": {
+    "top_1_accuracy": 0.5663,
+    "top_3_accuracy": 0.9587,
+    "n_questions": 3076
+  },
+  "model_info": {
+    "type": "Logistic Regression on pairwise category co-occurrence features",
+    "training_pairs": 21829,
+    "note": "Scores are model-generated signals based on 2017 Polyvore outfit data. They do not represent objective fashion advice."
+  },
+  "elapsed_seconds": 8.9
+}

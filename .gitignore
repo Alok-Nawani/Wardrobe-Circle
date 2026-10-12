@@ -1,0 +1,95 @@
+# ============================================================
+# Wardrobe Circle — .gitignore
+# ============================================================
+
+# ── OS ──────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# ── Python ──────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+.eggs/
+.Python
+.venv/
+venv/
+env/
+ENV/
+.env
+
+# ── Testing / analysis ──────────────────────────────────────
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ── Jupyter ─────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Frontend ────────────────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+# Real env file — never commit; .env.example is committed instead
+frontend/.env
+frontend/*.local
+
+# ── Build outputs ───────────────────────────────────────────
+build/
+dist/
+
+# ── Model checkpoints — large binary artifacts ───────────────
+# clothing_classifier_best.pth: 16 MB EfficientNet-B0 weights
+# Regenerate: python src/train.py --epochs 5
+models/*.pth
+
+# compatibility_model.pkl (340 KB) IS committed — needed for Phase 3 inference.
+# Regenerate: python src/polyvore/train_compatibility.py  (requires Polyvore data)
+
+# ── Embedding index — generated artifact ─────────────────────
+# Regenerate: python src/build_embeddings.py  (requires model + raw images)
+data/embeddings/*.npz
+
+# ── Polyvore dataset files — redistribution not yet verified ─
+# Source: https://github.com/xthan/polyvore-dataset/
+# Extract from polyvore.tar.gz to populate data/polyvore/
+data/polyvore/*.json
+data/polyvore/*.txt
+
+# ── Processed dataset splits — regenerable ───────────────────
+# Regenerate: python src/data/prepare_dataset.py
+# NOTE: data/class_distribution.csv is NOT excluded (it is a small committed file)
+data/processed/*.csv
+
+# ── Raw images — large Myntra dataset extract ────────────────
+# Source: Kaggle "Fashion Product Images" (archive.zip, 565 MB)
+# Extract: python src/data/prepare_dataset.py --zip ../archive.zip ...
+data/raw/images/
+
+# ── User wardrobe data — personal, not team-shared ───────────
+# Each developer's wardrobe starts empty on a fresh clone.
+data/wardrobe/wardrobe.json
+data/wardrobe/wardrobe.json.tmp
+data/wardrobe/uploads/
+
+# ── Dataset archives — too large for Git ─────────────────────
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+
+# ── Logs ────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Temp files ──────────────────────────────────────────────
+*.tmp
